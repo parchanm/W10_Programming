@@ -30,6 +30,7 @@ namespace NodeCanvas.Tasks.Conditions {
 		//Return whether the condition is success or failure.
 		protected override bool OnCheck() {
 			float distanceToTarget = Vector3.Distance(currentTarget.value.position, agent.transform.position);
+			Debug.Log(distanceToTarget);
 			return distanceToTarget < rangeDistance;
 		}
 	}

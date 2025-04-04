@@ -8,12 +8,15 @@ namespace NodeCanvas.Tasks.Actions {
 	public class ChangeTargetAT : ActionTask {
 		public List<Transform> patrolPoints;
 		public BBParameter<Transform> currentTarget;
-		public BBParameter<float> age;
+		//public BBParameter<float> age;
         public MeshRenderer meshRenderer;
         public Color resetColor;
 
-        public int minage;
-		public int maxage;
+		public BBParameter<float> currentMineral;
+		public float increaseMineral;
+
+		//      public int minage;
+		//public int maxage;
 
 		private int currentPatrolPointIndex = 0;
 
@@ -27,16 +30,18 @@ namespace NodeCanvas.Tasks.Actions {
 		//Call EndAction() to mark the action as finished, either in success or failure.
 		//EndAction can be called from anywhere.
 		protected override void OnExecute() {
-			currentPatrolPointIndex++;
+
+            currentPatrolPointIndex++;
 			if(patrolPoints.Count <= currentPatrolPointIndex)
 			{
 				currentPatrolPointIndex = 0;
                 //randomize age
-                meshRenderer.material.color = resetColor;
-                age.value = Random.Range(minage, maxage);
-				Debug.Log("age randomized");
+    //            meshRenderer.material.color = resetColor;
+    //            age.value = Random.Range(minage, maxage);
+				//Debug.Log("age randomized");
 			}
 			currentTarget.value = patrolPoints[currentPatrolPointIndex];
+            
 			EndAction(true);
 		}
 
