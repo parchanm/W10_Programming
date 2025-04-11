@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SteeringData : MonoBehaviour
 {
+    //public variables for steering data
     public Vector3 acceleration;
     public Vector3 velocity;
-    public float maxSpeed;
+    public float maxGroundSpeed;
 }
